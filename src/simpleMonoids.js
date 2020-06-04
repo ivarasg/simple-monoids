@@ -18,6 +18,11 @@ const AllMonoid = {
   empty: true
 }
 
+const AnyMonoid = {
+  concat: (x, y) => x || y,
+  empty: false
+}
+
 const fold = M => ms => ms.reduce(M.concat, M.empty)
 
 module.exports = {
@@ -25,6 +30,7 @@ module.exports = {
   ProductMonoid,
   ObjectMonoid,
   AllMonoid,
+  AnyMonoid,
   fold
 }
 
